@@ -23,7 +23,6 @@ exports.init = () => {
 }
 
 exports.get = type => {
-  console.log(type)
   return Meal.findOne({
     where: {
       type: type
@@ -36,7 +35,7 @@ exports.update = async (mealInfos) => {
     where: {},
     truncate: true
   })
-  console.log(mealInfos)
+
   mealInfos.forEach(async meal => {
     await Meal.create({
       date: meal.date,

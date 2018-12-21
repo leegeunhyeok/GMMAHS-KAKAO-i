@@ -5,7 +5,7 @@ const routerName = '/meal'
 module.exports = app => {
   app.post(routerName, async (req, res) => {
     const params = req.body.action['params'] || {}
-    const type = params['sys_date'] || {}
+    const type = JSON.parse(params['sys_date'] || '{}')
     const mealData = await controller.get(type['dateTag'])
 
     let typeString = '오늘의 급식을 알려드릴게요!'
