@@ -1,8 +1,6 @@
 const express = require('express')
 const app = express()
 
-const bodyParser = require('body-parser')
-
 const colors = require('colors')
 
 const { timeStamp } = require('./app/common/util')
