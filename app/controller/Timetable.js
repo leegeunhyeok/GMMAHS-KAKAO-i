@@ -176,7 +176,7 @@ Timetable.get = async function (grade, classNum, weekday) {
   try {
     const rows = await TimetableModel.get(grade, classNum, weekday)
     if (rows) {
-      let timetableResult = `${grade}학년 ${classNum}반 ${this._weekdayString[weekday]}요일 시간표 📅\n\n`
+      let timetableResult = `📅 ${grade}학년 ${classNum}반 ${this._weekdayString[weekday]}요일 시간표\n\n`
       for (let row of rows) {
         let data = row.dataValues
         timetableResult += `${this._numberEmoji[data.class_time - 1]}교시 - ${data.subject} (${data.teacher})\n`
