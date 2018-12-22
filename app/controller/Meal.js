@@ -16,28 +16,28 @@ Meal.update = async function () {
     const mealInfo = await this.school.getMeal()
 
     // 월, 일, 요일
-    const $date = new Date()
-    const $month = $date.getMonth() + 1
-    let $day = $date.getDate()
-    let $weekDay = $date.getDay()
-    let $tomorrow = $day + 1
+    const date = new Date()
+    const month = date.getMonth() + 1
+    let day = date.getDate()
+    let weekDay = date.getDay()
+    let tomorrow = day + 1
 
     // 이번달의 마지막 날 (일)
-    const $lastDay = new Date($date.getYear(), $month, 0).getDate()
+    const lastDay = new Date(date.getYear(), month, 0).getDate()
     const data = []
 
     // 오늘 급식
     data.push({
-      date: `${$month}월 ${$day}일 ${this._week[$weekDay]}요일`,
-      info: mealInfo[$day],
+      date: `${month}월 ${day}일 ${this._week[weekDay]}요일`,
+      info: mealInfo[day],
       type: 'today'
     })
 
     // 내일 급식 (이번 달 마지막 날짜 이하인 경우)
-    if ($tomorrow <= $lastDay) {
+    if (tomorrow <= lastDay) {
       data.push({
-        date: `${$month}월 ${$tomorrow}일 ${this._week[$weekDay + 1 > 6 ? 6 - $weekDay : $weekDay + 1]}요일`,
-        info: mealInfo[$day],
+        date: `${month}월 ${tomorrow}일 ${this._week[weekDay + 1 > 6 ? 6 - weekDay : weekDay + 1]}요일`,
+        info: mealInfo[tomorrow],
         type: 'tomorrow'
       })
     }
