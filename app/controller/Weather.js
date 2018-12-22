@@ -54,9 +54,9 @@ Weather.get = async function () {
       const pub = rows[0].pub
       rows.forEach(row => {
         const time = row.hour > 12 ? row.hour - 12 : row.hour
-        resultString += `${this._clock[time - 1]}` +
+        resultString += `[ ${this._clock[time - 1]}` +
                         ` ${row.hour > 12 ? '오후' : '오전'}` +
-                        ` ${time}시\n` +
+                        ` ${time}시 ]\n` +
                         `🌡️ 기온: ${row.temp}℃\n` +
                         `🌦️ 강수형태: ${this._pty[row.pty]}\n` +
                         `❔ 강수확률: ${row.pop}%, ${row.wfKor}\n` +
