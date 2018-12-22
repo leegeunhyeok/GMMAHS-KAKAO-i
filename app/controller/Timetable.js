@@ -175,15 +175,16 @@ Timetable.update = async function () {
 Timetable.get = async function (grade, classNum, weekday) {
   try {
     const rows = await TimetableModel.get(grade, classNum, weekday)
-    if (rows) {
+    if (rows.length > 0) {
       let timetableResult = `📅 ${grade}학년 ${classNum}반 ${this._weekdayString[weekday]}요일 시간표\n\n`
       for (let row of rows) {
         let data = row.dataValues
         timetableResult += `${this._numberEmoji[data.class_time - 1]}교시 - ${data.subject} (${data.teacher})\n`
       }
       return timetableResult.replace(/\n$/, '')
+    } else {
+      return '시간표 정보가 없습니다.'
     }
-    return '시간표 정보가 없습니다.'
   } catch (e) {
     console.log(timeStamp() + e.message.red)
     return '시간표 데이터를 불러오는 중 문제가 발생했습니다.'
