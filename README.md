@@ -13,6 +13,14 @@
 
 ## 소개
 광명경영회계고등학교의 정보를 제공하는 카카오톡 챗봇입니다.
+
+### 챗봇 스크린샷
+
+<img src="./sample/menu.png">
+<img src="./sample/bus.png">
+<img src="./sample/timetable_0.png">
+<img src="./sample/timetable_1.png">
+
 - 주요 기능
   - 🍚 오늘, 내일 급식 조회
   - 📘 학급 시간표 조회
