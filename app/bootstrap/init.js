@@ -18,6 +18,7 @@ const busSkill = require('../skill/bus')
 const calendarSkill = require('../skill/calendar')
 const mealSkill = require('../skill/meal')
 const timetableSkill = require('../skill/timetable')
+const weatherSkill = require('../skill/weather')
 
 const { timeStamp } = require('../common/util')
 const school = require('./school').school
@@ -68,6 +69,7 @@ module.exports = async (app, express) => {
   calendarSkill(app)
   mealSkill(app)
   timetableSkill(app)
+  weatherSkill(app)
   require('../route/admin')(app)
 
   console.log(timeStamp() + 'Initialization complete! ' + (new Date() - startTime + 'ms').yellow)
