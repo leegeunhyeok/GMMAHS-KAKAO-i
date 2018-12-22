@@ -46,7 +46,7 @@ Statistics.get = async function () {
              `📅 학사일정: ${(stat['calendar'] / total * 100).toFixed(2)}%\n` +
              `⛅ 날씨: ${(stat['weather'] / total * 100).toFixed(2)}%\n` +
              `🚌 버스: ${(stat['bus'] / total * 100).toFixed(2)}%\n` +
-             `✔️ 전체 채팅 요청 수: ${total}회\n`
+             `✔️ 전체 기능 요청 수: ${total}회\n`
     } else {
       return '통계 데이터가 없습니다.'
     }
