@@ -13,6 +13,7 @@ const statistics = require('../controller/Statistics')
 const timetable = require('../controller/Timetable')
 const weather = require('../controller/Weather')
 
+const calendarSkill = require('../skill/calendar')
 const mealSkill = require('../skill/meal')
 const timetableSkill = require('../skill/timetable')
 
@@ -39,10 +40,10 @@ module.exports = async (app, express) => {
   await timetable.init('광명경영회계고등학교')
   await weather.init()
 
-  // await calendar.update()
+  await calendar.update()
   await meal.update()
   await timetable.update()
-  // await weather.update()
+  await weather.update()
 
   await require('./scheduler').init()
 
@@ -60,8 +61,10 @@ module.exports = async (app, express) => {
   app.use(passport.initialize())
   app.use(passport.session())
 
-  await mealSkill(app)
-  await timetableSkill(app)
+  // Openbuilder 스킬 라우팅 등록
+  calendarSkill(app)
+  mealSkill(app)
+  timetableSkill(app)
   require('../route/admin')(app)
 
   console.log(timeStamp() + 'Initialization complete! ' + (new Date() - startTime + 'ms').yellow)
