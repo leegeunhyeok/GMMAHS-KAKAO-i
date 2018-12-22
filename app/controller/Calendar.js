@@ -22,7 +22,7 @@ Calendar.update = async function () {
 Calendar.get = async function () {
   try {
     const rows = await CalendarModel.get()
-    let resultString = '[ 이번 달 학사일정 ]\n\n'
+    let resultString = ''
     if (rows) {
       for (let row of rows) {
         resultString += `${row.month}월 ${row.day}일: ${row.content}\n`
