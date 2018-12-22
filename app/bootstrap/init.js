@@ -13,6 +13,8 @@ const statistics = require('../controller/Statistics')
 const timetable = require('../controller/Timetable')
 const weather = require('../controller/Weather')
 
+
+const busSkill = require('../skill/bus')
 const calendarSkill = require('../skill/calendar')
 const mealSkill = require('../skill/meal')
 const timetableSkill = require('../skill/timetable')
@@ -62,6 +64,7 @@ module.exports = async (app, express) => {
   app.use(passport.session())
 
   // Openbuilder 스킬 라우팅 등록
+  busSkill(app)
   calendarSkill(app)
   mealSkill(app)
   timetableSkill(app)

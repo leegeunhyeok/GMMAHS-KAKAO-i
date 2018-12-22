@@ -53,8 +53,8 @@ Bus.getStation = function (keyword) {
         })
 
         if (station.length > 6) {
-          reject(new Error('검색된 정류장이 너무 많습니다.\n' +
-                '더 자세한 키워드를 입력해주세요\n\n검색된 정류장 수: ' +
+          reject(new Error('검색된 정류장이 너무 많습니다 😨\n' +
+                '더 자세한 키워드를 입력해주세요! 🔍\n\n검색된 정류장 수: ' +
                 station.length))
         } else {
           resolve(station)
@@ -77,7 +77,7 @@ Bus.getBus = function (stationIds = []) {
 
         request(url, (err, res, body) => {
           if (err) {
-            reject(new Error('정류장에 도착할 버스를 조회하는 도중 오류가 발생하였습니다.'))
+            reject(new Error('정류장에 도착할 버스를 조회하는 도중 오류가 발생했습니다.'))
           }
 
           // 버스 데이터 저장 배열
@@ -167,9 +167,9 @@ Bus.process = data => {
   for (let bus of data) {
     let targetBus = bus[0]
     if (targetBus.time1) {
-      resultString += `[${targetBus.number}번 버스]\n${targetBus.station} 정류장 도착 정보\n` +
-      `이번 버스: ${targetBus.time1}분 (${targetBus.loc1} 정류장 전)\n` +
-      `다음 버스: ${targetBus.time2 ? targetBus.time2 + `분 (${targetBus.loc2} 정류장 전)` : '정보 없음'}\n\n`
+      resultString += `${targetBus.number}번 버스 🚌\n🚏 ${targetBus.station} 정류장 도착 정보\n` +
+      `1️⃣ 이번 버스: ${targetBus.time1}분 (${targetBus.loc1} 정류장 전)\n` +
+      `2️⃣ 다음 버스: ${targetBus.time2 ? targetBus.time2 + `분 (${targetBus.loc2} 정류장 전)` : '정보 없음'}\n\n`
     }
   }
   return resultString
