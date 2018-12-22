@@ -1,6 +1,6 @@
 {
   "name": "gmmahs-kakao-i",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "GMMAHS kakao i openbuilder chatbot",
   "main": "main.js",
   "scripts": {
