@@ -167,7 +167,7 @@ Bus.process = data => {
   for (let bus of data) {
     let targetBus = bus[0]
     if (targetBus.time1) {
-      resultString += `${targetBus.number}번 버스 🚌\n🚏 ${targetBus.station} 정류장 도착 정보\n` +
+      resultString += `${targetBus.number}번 버스 🚌\n` +
       `1️⃣ 이번 버스: ${targetBus.time1}분 (${targetBus.loc1} 정류장 전)\n` +
       `2️⃣ 다음 버스: ${targetBus.time2 ? targetBus.time2 + `분 (${targetBus.loc2} 정류장 전)` : '정보 없음'}\n\n`
     }
@@ -177,10 +177,14 @@ Bus.process = data => {
 
 Bus.search = async function (keyword) {
   try {
-    let stations = await this.getStation(keyword)
-    let buses = await this.getBus(stations)
-    let infos = await this.getBusInfo(buses)
-    return this.process(infos)
+    if (keyword) {
+      let stations = await this.getStation(keyword)
+      let buses = await this.getBus(stations)
+      let infos = await this.getBusInfo(buses)
+      return this.process(infos)
+    } else {
+      return '키워드를 입력해주세요'
+    }
   } catch (e) {
     console.log(timeStamp() + e.message.red)
     return e.message

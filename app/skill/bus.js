@@ -5,9 +5,8 @@ const routerName = '/bus'
 module.exports = app => {
   app.post(routerName, async (req, res) => {
     const params = req.body.action['params'] || {}
-    const type = JSON.parse(params['sys_text'] || '{}')
-    const busData = await controller.search(type['dateTag'])
-    console.log(JSON.stringify(params, null, 2))
+    const keyword = params['sys_text'] || ''
+    const busData = await controller.search(keyword)
 
     res.json({
       version: '2.0',
@@ -15,8 +14,13 @@ module.exports = app => {
         outputs: [
           {
             simpleText: {
+              text: `🚏 ${keyword} 정류장 도착 정보입니다!`
+            }
+          },
+          {
+            simpleText: {
               text: busData
-            },
+            }
           }
         ],
         quickReplies: [
