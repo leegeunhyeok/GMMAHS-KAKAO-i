@@ -13,10 +13,10 @@ const statistics = require('../controller/Statistics')
 const timetable = require('../controller/Timetable')
 const weather = require('../controller/Weather')
 
-
 const busSkill = require('../skill/bus')
 const calendarSkill = require('../skill/calendar')
 const mealSkill = require('../skill/meal')
+const statSkill = require('../skill/statistics')
 const timetableSkill = require('../skill/timetable')
 const weatherSkill = require('../skill/weather')
 
@@ -68,6 +68,7 @@ module.exports = async (app, express) => {
   busSkill(app)
   calendarSkill(app)
   mealSkill(app)
+  statSkill(app)
   timetableSkill(app)
   weatherSkill(app)
   require('../route/admin')(app)

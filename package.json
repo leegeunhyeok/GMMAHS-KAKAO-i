@@ -4,7 +4,8 @@
   "description": "GMMAHS kakao i openbuilder chatbot",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "standard && node my-tests.js",
+    "fix": "standard --fix"
   },
   "repository": {
     "type": "git",

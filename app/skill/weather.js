@@ -1,9 +1,11 @@
+const statistics = require('../controller/Statistics')
 const controller = require('../controller/Weather')
 
 const routerName = '/weather'
 
 module.exports = app => {
   app.post(routerName, async (req, res) => {
+    await statistics.count('WEATHER')
     const weatherData = await controller.get()
 
     res.json({
@@ -13,7 +15,7 @@ module.exports = app => {
           {
             simpleText: {
               text: '🌈 기상청 날씨 정보입니다!'
-            },
+            }
           },
           {
             simpleText: {

@@ -1,9 +1,11 @@
+const statistics = require('../controller/Statistics')
 const controller = require('../controller/Calendar')
 
 const routerName = '/calendar'
 
 module.exports = app => {
   app.post(routerName, async (req, res) => {
+    await statistics.count('CALENDAR')
     const calendarData = await controller.get()
 
     res.json({
@@ -13,7 +15,7 @@ module.exports = app => {
           {
             simpleText: {
               text: '📅 이번 달 학사일정입니다!'
-            },
+            }
           },
           {
             simpleText: {

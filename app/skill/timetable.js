@@ -1,9 +1,11 @@
+const statistics = require('../controller/Statistics')
 const controller = require('../controller/Timetable')
 
 const routerName = '/timetable'
 
 module.exports = app => {
   app.post(routerName, async (req, res) => {
+    await statistics.count('TIMETABLE')
     const params = req.body.action['params'] || {}
     const date = JSON.parse(params['sys_date'] || '{}')
     const dateString = date['date']
@@ -15,7 +17,7 @@ module.exports = app => {
 
     const gradeNum = gradeParam['amount'] || 0
     const classNum = classParam['amount'] || 0
-    
+
     const timetableData = await controller.get(gradeNum, classNum, day)
 
     res.json({
@@ -25,7 +27,7 @@ module.exports = app => {
           {
             simpleText: {
               text: timetableData
-            },
+            }
           }
         ],
         quickReplies: [

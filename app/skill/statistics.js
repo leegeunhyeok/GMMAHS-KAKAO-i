@@ -1,27 +1,22 @@
-const statistics = require('../controller/Statistics')
-const controller = require('../src/Bus')
+const controller = require('../controller/Statistics')
 
-const routerName = '/bus'
+const routerName = '/statistics'
 
 module.exports = app => {
   app.post(routerName, async (req, res) => {
-    await statistics.count('BUS')
-    const params = req.body.action['params'] || {}
-    const keyword = params['sys_text'] || ''
-    const busData = await controller.search(keyword)
-
+    const statData = await controller.get()
     res.json({
       version: '2.0',
       template: {
         outputs: [
           {
             simpleText: {
-              text: `🚏 ${keyword} 정류장 도착 정보입니다!`
+              text: '여러분들이 사용한 메뉴의 사용량 통계입니다! 😃'
             }
           },
           {
             simpleText: {
-              text: busData
+              text: statData
             }
           }
         ],

@@ -1,9 +1,11 @@
+const statistics = require('../controller/Statistics')
 const controller = require('../controller/Meal')
 
 const routerName = '/meal'
 
 module.exports = app => {
   app.post(routerName, async (req, res) => {
+    await statistics.count('MEAL')
     const params = req.body.action['params'] || {}
     const type = JSON.parse(params['sys_date'] || '{}')
     const mealData = await controller.get(type['dateTag'])
@@ -22,7 +24,7 @@ module.exports = app => {
           {
             simpleText: {
               text: typeString
-            },
+            }
           },
           {
             simpleText: {
@@ -35,6 +37,11 @@ module.exports = app => {
             label: '이번 달 급식도 볼래요',
             action: 'message',
             messageText: '이번 달 급식'
+          },
+          {
+            label: '메뉴 보기',
+            action: 'message',
+            messageText: '메뉴 보기'
           }
         ]
       }
