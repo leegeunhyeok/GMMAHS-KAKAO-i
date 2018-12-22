@@ -14,6 +14,7 @@ const timetable = require('../controller/Timetable')
 const weather = require('../controller/Weather')
 
 const mealSkill = require('../skill/meal')
+const timetableSkill = require('../skill/timetable')
 
 const { timeStamp } = require('../common/util')
 const school = require('./school').school
@@ -40,7 +41,7 @@ module.exports = async (app, express) => {
 
   // await calendar.update()
   await meal.update()
-  // await timetable.update()
+  await timetable.update()
   // await weather.update()
 
   await require('./scheduler').init()
@@ -60,6 +61,7 @@ module.exports = async (app, express) => {
   app.use(passport.session())
 
   await mealSkill(app)
+  await timetableSkill(app)
   require('../route/admin')(app)
 
   console.log(timeStamp() + 'Initialization complete! ' + (new Date() - startTime + 'ms').yellow)

@@ -9,6 +9,7 @@ var Timetable = {}
 Timetable._baseUrl = 'http://comci.kr:4081'
 Timetable._url = 'http://comci.kr:4081/st'
 Timetable._weekdayString = ['일', '월', '화', '수', '목', '금', '토']
+Timetable._numberEmoji = ['1️⃣', '2️⃣', '3️⃣', '4️⃣', '5️⃣', '6️⃣', '7️⃣', '8️⃣', '9️⃣']
 
 Timetable.init = async function (schoolKeyword) {
   this._school = schoolKeyword
@@ -175,10 +176,10 @@ Timetable.get = async function (grade, classNum, weekday) {
   try {
     const rows = await TimetableModel.get(grade, classNum, weekday)
     if (rows) {
-      let timetableResult = `${grade}학년 ${classNum}반 ${this._weekdayString[weekday]}요일 시간표\n\n`
+      let timetableResult = `${grade}학년 ${classNum}반 ${this._weekdayString[weekday]}요일 시간표 📅\n\n`
       for (let row of rows) {
         let data = row.dataValues
-        timetableResult += `${data.class_time}교시: ${data.subject}(${data.teacher})\n`
+        timetableResult += `${this._numberEmoji[data.class_time - 1]}교시 - ${data.subject} (${data.teacher})\n`
       }
       return timetableResult.replace(/\n$/, '')
     }
