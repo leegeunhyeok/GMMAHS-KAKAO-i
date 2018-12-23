@@ -1,7 +1,8 @@
 {
-  "port": 8080,
+  "port": 10000,
   "schoolCode": "J100000488",
   "api_key": "",
+  "proxy": "/gmmahs/api",
   "admin": {
     "id": "admin",
     "password": "admin"

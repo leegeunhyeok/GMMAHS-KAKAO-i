@@ -1,7 +1,8 @@
+const config = require('config')
 const statistics = require('../controller/Statistics')
 const controller = require('../controller/Timetable')
 
-const routerName = '/timetable'
+const routerName = config.get('proxy') + '/timetable'
 
 module.exports = app => {
   app.post(routerName, async (req, res) => {

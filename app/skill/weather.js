@@ -1,7 +1,8 @@
+const config = require('config')
 const statistics = require('../controller/Statistics')
 const controller = require('../controller/Weather')
 
-const routerName = '/weather'
+const routerName = config.get('proxy') + '/weather'
 
 module.exports = app => {
   app.post(routerName, async (req, res) => {
