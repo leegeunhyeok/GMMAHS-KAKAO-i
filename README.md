@@ -1,6 +1,6 @@
 <div align="center">
   
-  ![](./kakao.png)
+  ![](https://user-images.githubusercontent.com/26512984/54033405-9429b680-41f7-11e9-9218-8dd93192fa62.png)
   
   [광명경영회계고등학교 플러스친구](http://pf.kakao.com/_DWMsC)
 
@@ -16,10 +16,10 @@
 
 ### 챗봇 스크린샷
 
-<img src="./sample/menu.png">
-<img src="./sample/bus.png">
-<img src="./sample/timetable_0.png">
-<img src="./sample/timetable_1.png">
+<img src="https://user-images.githubusercontent.com/26512984/54033508-d8b55200-41f7-11e9-953e-72bb80a8d3ae.png">
+<img src="https://user-images.githubusercontent.com/26512984/54033509-d9e67f00-41f7-11e9-9900-51e4120af233.png">
+<img src="https://user-images.githubusercontent.com/26512984/54033511-da7f1580-41f7-11e9-833d-615d4421a6f0.png">
+<img src="https://user-images.githubusercontent.com/26512984/54033512-dbb04280-41f7-11e9-9cd1-184b5091024a.png">
 
 - 주요 기능
   - 🍚 오늘, 내일 급식 조회
