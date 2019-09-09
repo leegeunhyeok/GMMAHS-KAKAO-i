@@ -29,6 +29,15 @@ const timeStamp = () => {
   return `${year}-${month}-${day} ${hour}:${min}:${sec}.${ms} `.gray
 }
 
+const sqlInjectVaildate = str => {
+  const filter = ['\'', '"', ';', '*', 'DELETE', 'DROP']
+  for (let flt of filter) {
+    if (str.include(flt)) {
+      throw new Error(`😠 SQL Injection 공격이 감지되었습니다.`)
+    }
+  }
+}
+
 module.exports = {
   appendZero: appendZero,
   timeStamp: timeStamp

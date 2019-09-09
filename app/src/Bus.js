@@ -178,6 +178,7 @@ Bus.process = data => {
 Bus.search = async function (keyword) {
   try {
     if (keyword) {
+      sqlInjectVaildate(keyword)
       let stations = await this.getStation(keyword)
       let buses = await this.getBus(stations)
       let infos = await this.getBusInfo(buses)
