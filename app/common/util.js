@@ -39,6 +39,7 @@ const sqlInjectVaildate = str => {
 }
 
 module.exports = {
-  appendZero: appendZero,
-  timeStamp: timeStamp
+  appendZero,
+  timeStamp,
+  sqlInjectVaildate
 }

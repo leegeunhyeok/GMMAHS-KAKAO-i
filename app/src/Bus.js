@@ -2,7 +2,7 @@ const config = require('config')
 const request = require('request')
 const cheerio = require('cheerio')
 
-const { timeStamp } = require('../common/util')
+const { timeStamp, sqlInjectVaildate } = require('../common/util')
 
 var Bus = {}
 
