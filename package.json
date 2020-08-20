@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/leegeunhyeok/GMMAHS-KAKAO-i#readme",
   "dependencies": {
-    "bcrypt": "^3.0.2",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "cheerio": "^1.0.0-rc.2",
     "colors": "^1.3.3",
